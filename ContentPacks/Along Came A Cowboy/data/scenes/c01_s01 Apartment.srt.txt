@@ -1,0 +1,839 @@
+triggers {
+  name: "Sc_UsePocSec"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "520106f2653163c809006028"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Start Conversation"
+      args {
+        call_value {
+          functionName: "Get Map Item (Conversation)"
+          args {
+            string_value: "5201072d653163c809006029"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Player)"
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Add Item to Actor"
+      args {
+        call_value {
+          functionName: "Get Map Item (Item)"
+          args {
+            string_value: "ACC_PocketSecretary"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "WithOrWithout"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Clear All Waypoints"
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5201043e653163c809006009"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Sc_OpenDoor_01"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5203c1256531635012006476"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+    ops {
+      functionName: "Comparison (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "SC_IsDoorOpen"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "IsOrIsNot"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  actions {
+    ops {
+      functionName: "Move Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5200e295653163c809005fba"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specified Point (2D)"
+          args {
+            float_value: 0
+          }
+          args {
+            float_value: 10
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "SC_IsDoorOpen"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "52010fad653163c809006072"
+  }
+  elseActions {
+    ops {
+      functionName: "Move Prop"
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "5200e295653163c809005fba"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Specified Point (2D)"
+          args {
+            float_value: 0
+          }
+          args {
+            float_value: -10
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Variable (bool)"
+      args {
+        call_value {
+          functionName: "Get Variable (bool)"
+          args {
+            string_value: "SC_IsDoorOpen"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "bool"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Sc_StartScene"
+  events {
+    ops {
+      functionName: "On Map Start"
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Set Goal Status"
+      args {
+        call_value {
+          functionName: "Get Map Item (Goal)"
+          args {
+            string_value: "Check Messages"
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "GoalStatus"
+          }
+          args {
+            int_value: 1
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Set Waypoint on Prop"
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "PrimaryOrSecondary"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Map Item (Prop)"
+          args {
+            string_value: "520106f2653163c809006028"
+          }
+        }
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "52011256653163c80900608a"
+  }
+  elseActions {
+  }
+  is_oneshot: true
+}
+triggers {
+  name: "Sc_CheckStash"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5203b23a6531635012006342"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Open Equip Screen"
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5203b23f6531635012006343"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+triggers {
+  name: "Sc_Sleep"
+  events {
+    ops {
+      functionName: "On Item Interaction"
+      args {
+        call_value {
+          functionName: "Get Map Item (InteractableObject)"
+          args {
+            string_value: "5203be956531635012006472"
+          }
+        }
+      }
+    }
+  }
+  conditions {
+  }
+  actions {
+    ops {
+      functionName: "Fade Camera Out"
+      args {
+        float_value: 1
+      }
+      args {
+        float_value: 0
+      }
+    }
+    ops {
+      functionName: "Heal Actor"
+      args {
+        call_value {
+          functionName: "Specific Actor"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Actor Attribute"
+          args {
+            call_value {
+              functionName: "Triggering Actor"
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "BaseOrCurrent"
+              }
+              args {
+                int_value: 0
+              }
+            }
+          }
+          args {
+            call_value {
+              functionName: "Get Preset Value (int)"
+              args {
+                string_value: "ActorAttributes"
+              }
+              args {
+                int_value: 8
+              }
+            }
+          }
+        }
+      }
+      args {
+        call_value {
+          functionName: "Get Preset Value (int)"
+          args {
+            string_value: "HPOrAP"
+          }
+          args {
+            int_value: 0
+          }
+        }
+      }
+    }
+    ops {
+      functionName: "Fade Camera In"
+      args {
+        float_value: 1
+      }
+      args {
+        float_value: 2
+      }
+    }
+  }
+  isActive: true
+  idRef {
+    id: "5203bea76531635012006474"
+  }
+  elseActions {
+  }
+  is_oneshot: false
+}
+regions {
+  name: "PlayerApartment"
+  position {
+    x: 19
+    y: -4
+    width: -23
+    height: 12
+  }
+  enabledAtStart: true
+  is_camera_region: true
+  idRef {
+    id: "5203010a6531637809006009"
+  }
+  directional_light_dir {
+    x: -0.5
+    y: -1
+    z: -0.75
+  }
+  directional_light_color {
+    r: 0.50196081
+    g: 0.50196081
+    b: 0.50196081
+    a: 1
+  }
+  ambient_light_color {
+    r: 0.87058824
+    g: 0.87058824
+    b: 0.87058824
+    a: 1
+  }
+  ambience_template: "barrens-night"
+  combat_music: ""
+  default_music: "Silence"
+  loop_combat_music: true
+  loop_default_music: true
+}
+characters {
+  name: "system_spawner_playerSpawner"
+  gridPoint {
+    x: -2
+    y: 0
+    z: -2
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5200f5e6653163c809005ffb"
+  }
+  interactionRoot {
+    isEnabled: true
+    interactionRadius: 1
+    conversationPoint {
+      conversationID: "5203f44b6531635012006526"
+      turnToFace: true
+    }
+  }
+  character_instance {
+    character_mod {
+      archetypeName: "Player"
+    }
+    team_id: "Shadowrunners"
+    char_name: "New Actor"
+    enabled_at_start: true
+    pc_spawn_number: 0
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -24
+    y: 0
+    z: 5
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "5203016b653163780900600a"
+  }
+  character_instance {
+    prefab_name: "Core/DwarfMale"
+    character_sheet_id: "CG Dwarf Mage"
+    equipment_sheet_id: "Lonestar_Pistol_High"
+    character_mod {
+      stats {
+        body: 2
+        quickness: 4
+        strength: 3
+        charisma: 4
+        intelligence: 4
+        willpower: 2
+        essence: 0
+        magic: 6
+        hp: 0
+        ap: 0
+        armor: 0
+        force: 6
+        morale: 0
+        awareness: 0
+        protect_tether_range: 0
+        move_speed: 6
+      }
+      skills {
+        ranged_combat: 5
+        close_combat: 4
+        throwing_weapons: 0
+        spellcasting: 4
+        decking: 0
+        conjuring: 6
+        spirit_summoning: 6
+        drone_control: 0
+        biotech: 6
+        dodge: 5
+        etiquette_corporate: 6
+        etiquette_security: 4
+        etiquette_gang: 2
+        etiquette_socialite: 2
+        chi_casting: 0
+        etiquette_shadowrunner: 6
+        etiquette_street: 4
+        etiquette_academic: 4
+      }
+      specializations {
+        pistol: 6
+        rifle: 0
+        shotgun: 0
+        smg: 0
+        edged: 0
+        unarmed: 4
+        spirit_control: 6
+        esp_control: 0
+        drone_combat: 0
+      }
+      archetypeName: "Guard - Protect"
+      attitude: AttitudeAggressive
+    }
+    equipment {
+      prefab_name: "Killing Hands"
+    }
+    equipment {
+      prefab_name: "Bound Nature Spirit 5"
+    }
+    equipment {
+      prefab_name: "Spell Fireball 2"
+    }
+    equipment {
+      prefab_name: "Spell Manaball 3"
+    }
+    equipment {
+      prefab_name: "Spell Manabolt 3"
+    }
+    equipment {
+      prefab_name: "Spell Aim 3"
+    }
+    equipment {
+      prefab_name: "Spell Heal 4"
+    }
+    equipment {
+      prefab_name: "Mage Vision"
+    }
+    equipment {
+      prefab_name: "TotemRaccoon"
+    }
+    equipment {
+      prefab_name: "MageDark"
+    }
+    team_id: "Civilians"
+    char_name: "Creek"
+    pc_spawn_number: -1
+    portrait {
+      filename: "pc_dwarfmale_06_blackbeard"
+    }
+    karma: 303
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -24
+    y: 0
+    z: 6
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "520304fe653163780900600b"
+  }
+  character_instance {
+    prefab_name: "Extras/ElfMaleBunraku"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        hp: 0
+        ap: 0
+        morale: 24
+        awareness: 24
+        protect_tether_range: 5
+        move_speed: 6
+      }
+      archetypeName: "Guard - Hunt And Destroy"
+    }
+    team_id: "Civilians"
+    char_name: "Mr. Johnson"
+    pc_spawn_number: -1
+    portrait {
+      filename: "pc_elfmale_00_faceless"
+    }
+    karma: 6
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -25
+    y: 0
+    z: 6
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "52030bc56531635012006025"
+  }
+  character_instance {
+    prefab_name: "Gangers/ElfMaleGangerDreads"
+    character_sheet_id: "CG Elf Decker"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        hp: 0
+        ap: 0
+        morale: 24
+        awareness: 19
+        protect_tether_range: 5
+        move_speed: 6
+      }
+      archetypeName: "Non-Combatant"
+    }
+    team_id: "Gangers"
+    char_name: "Ancient Ganger"
+    pc_spawn_number: -1
+    portrait {
+      filename: "pc_elfmale_06a_dreads"
+    }
+    karma: 37
+  }
+}
+characters {
+  name: "chars_icon_playerIcon"
+  gridPoint {
+    x: -25
+    y: 0
+    z: 5
+  }
+  orientation: ORIENTATION_S
+  idRef {
+    id: "52030cda6531635012006027"
+  }
+  character_instance {
+    prefab_name: "Scientist/HumanMaleScientistCoat"
+    character_sheet_id: "BaseCivilian"
+    character_mod {
+      stats {
+        body: 0
+        quickness: 0
+        strength: 0
+        charisma: 0
+        intelligence: 0
+        willpower: 0
+        essence: 0
+        hp: 0
+        ap: 0
+        morale: 24
+        awareness: 24
+        protect_tether_range: 5
+        move_speed: 6
+      }
+      archetypeName: "Non-Combatant"
+    }
+    team_id: "Civilians"
+    char_name: "Doc Wagon Rep"
+    pc_spawn_number: -1
+    portrait {
+      filename: "generic_humanmale_scientist01"
+    }
+    karma: 6
+  }
+}
+variables {
+  bool_value: false
+  variableref_value {
+    scope: TsVariableScope_Scene
+    name: "SC_IsDoorOpen"
+    typeName: "bool"
+  }
+}
+goals {
+  name: "Check Messages"
+  type: GoalType_Primary
+  status: GoalStatus_Hidden
+  description: "Check your pocket Secretary on the dining room table."
+}
+worldMapLocation {
+  filename: ""
+  location {
+    x: 0
+    y: 0
+  }
+}
+mapName: "c01_s01 Apartment"
+parentStory: ""
+scene_title: "Home Again, Home Again..."
+scene_subtitle: "New Beginnings"
+scene_synopsis: "...Jiggety Jig.\n\nYour last run was arduous at best.  What was supposed to be a simple run turned out to be more difficult than you could have ever imagined, but then again isn\'t that how they all turn out in the end?\n\nAfter the run you decided to get out of town for a while and just lay low.  So you packed your clothes, dropped your Pocket Secretary on the dining room table and left town for a couple weeks.  The second you enter your apartment you see the blinking blue light of your pocket secretary warning you of missed calls.  Of course there are missed calls, there are always missed calls."
+scene_image: ""
+scene_continue_button_skip: false
+scene_restore_runner_health: true
+directional_light_dir {
+  x: -0.5
+  y: -1
+  z: -0.75
+}
+directional_light_color {
+  r: 0.50196081
+  g: 0.50196081
+  b: 0.50196081
+}
+ambient_light_color {
+  r: 0.50196081
+  g: 0.50196081
+  b: 0.50196081
+}
+allow_drawn_weapons: false
+team_affiliations {
+  team_name: "Shadowrunners"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 1
+}
+team_affiliations {
+  team_name: "Gangers"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 1
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "LoneStar"
+  affiliation: 0
+  affiliation: 1
+  affiliation: 0
+  affiliation: 0
+  affiliation: 1
+}
+team_affiliations {
+  team_name: "Civilians"
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+  affiliation: 0
+}
+team_affiliations {
+  team_name: "Ancients"
+  affiliation: 1
+  affiliation: 0
+  affiliation: 1
+  affiliation: 0
+  affiliation: 0
+}
+scene_dimensions {
+  dimension_name: "Default"
+  initial_alarm_state: 0
+}
+character_roster {
+}
+show_hiring_screen_on_scene_load: false
+scene_hiring_prerequisites {
+  prereq_description: ""
+  prereq_conditions {
+  }
+}
+hiring_slot_count: 0
+hiring_minimum_karma: 0
+hiring_maximum_karma: 0
+roster_overrides {
+}
+use_hiring_cost_warning: false
+hiring_average_cost: 0
+override_hiring_average_cost: false
+show_equip_screen_on_scene_load: false

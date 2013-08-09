@@ -1,0 +1,207 @@
+idRef {
+  id: "5201072d653163c809006029"
+}
+ui_name: "PocketSecretary_01"
+nodes {
+  idRef {
+    id: "5203005c6531637809005fcc"
+  }
+  index: 0
+  text: "Your Pocket Secretary is your lifeblood in this modern age.  The Pocket Secretary is one part low-end AI, one part Computer, and one part Smartphone."
+  branches {
+    responseText: "Check Messages\t"
+    nextNodeIndex: 1
+  }
+  branches {
+    responseText: "Check Balance"
+    nextNodeIndex: 8
+  }
+  branches {
+    responseText: "Check Calendar"
+    nextNodeIndex: 9
+  }
+  branches {
+    responseText: "Put away your Pocket Secretary"
+    nextNodeIndex: 10
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5203005c6531637809005fcf"
+  }
+  index: 1
+  text: "You have (#Messages)"
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    hideIfUnavailable: true
+    onlyOnce: true
+    idRef {
+      id: "5203a93a65316350120061fc"
+    }
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5203005c6531637809005fd2"
+  }
+  index: 2
+  text: ""
+  branches {
+    responseText: "Message 1"
+    nextNodeIndex: 3
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Message 2"
+    nextNodeIndex: 4
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Message 3"
+    nextNodeIndex: 5
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Message 4"
+    nextNodeIndex: 6
+    hideIfUnavailable: true
+  }
+  branches {
+    responseText: "Hang Up"
+    nextNodeIndex: 7
+    hideIfUnavailable: true
+  }
+  nodeType: ConversationNodeType_GM_Voice
+  sourceInSceneRef {
+    id: "52030cda6531635012006027"
+  }
+}
+nodes {
+  idRef {
+    id: "5203a93665316350120061fb"
+  }
+  index: 3
+  text: "This is a message for $(l.name), we are calling to inform you that you are late on your DocWagon Contract Payments.  Please contact our offices immediately to renew your contract."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52030cda6531635012006027"
+  }
+}
+nodes {
+  idRef {
+    id: "5203a95565316350120061ff"
+  }
+  index: 4
+  text: "Hoi chummer, this is $(s.name), it\'s been a long time since we spoke.  I was wondering if you were interested in that run I talked to you about.  Give me a call, we could really use you.  "
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5203016b653163780900600a"
+  }
+}
+nodes {
+  idRef {
+    id: "5203a9786531635012006203"
+  }
+  index: 5
+  text: "Don\'t think we forgot what you did to us, keep an eye on your back chummer because if we see you the drek is going to hit the fan."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "52030bc56531635012006025"
+  }
+}
+nodes {
+  idRef {
+    id: "5203a9966531635012006208"
+  }
+  index: 6
+  text: "Seriously $(l.name), we could use you for this run we have, Sliver dropped at the last minute and we need a hand.  We can\'t back out of it now and we\'ll have to do it without you if you don\'t get back to me."
+  branches {
+    responseText: ""
+    nextNodeIndex: 2
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+  sourceInSceneRef {
+    id: "5203016b653163780900600a"
+  }
+}
+nodes {
+  idRef {
+    id: "5203a9ab653163501200620a"
+  }
+  index: 7
+  text: "Click"
+  branches {
+    responseText: ""
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "520309126531635012005fcc"
+  }
+  index: 8
+  text: "((ShowNuyen))"
+  branches {
+    responseText: ""
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_GM_Voice
+}
+nodes {
+  idRef {
+    id: "52030e40653163501200604a"
+  }
+  index: 9
+  text: "((ShowCalendar))"
+  branches {
+    responseText: ""
+    nextNodeIndex: 0
+    auxiliaryLink: true
+  }
+  nodeType: ConversationNodeType_Simple
+}
+nodes {
+  idRef {
+    id: "5203c45c65316350120064a3"
+  }
+  index: 10
+  text: ""
+}
+nodes {
+  idRef {
+    id: "52030e67653163501200604f"
+  }
+  index: 11
+  text: "Click"
+  nodeType: ConversationNodeType_Simple
+}
+roots {
+  responseText: ""
+  nextNodeIndex: 0
+}
+roots {
+  responseText: "Hang Up"
+  nextNodeIndex: 11
+}
